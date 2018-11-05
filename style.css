@@ -1,0 +1,42 @@
+body {
+color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+}
+ul li a {
+    font-family: calibri;
+    font-size: 1.3em;
+    text-decoration: none;
+    color: rgba(84, 204, 48, 0.7);
+    border-bottom: solid 1px rgb(0, 0, 0);
+    margin: 1%;
+    width: 100px;
+    background-color: rgba(23,24,28, 0.8);
+    padding-top: 5%;
+    text-align: center;
+}
+ul li a:hover {
+    border-bottom: solid 0.15em rgb(67, 238, 16);
+    color: rgb(67, 238, 16); 
+} 
+
+
+ .avatar{
+  background-image: url("AvatarBG.jpg"); 
+ }
+ button {
+  margin: 2px;
+  width: 45px;
+  height: 45px;
+ }
+ .duzyBtn{
+  width:95px;
+ }
+ #rwn{
+  height: 95px;
+  transform: translateY(-50%);
+ }
+ #wynik{
+  width: 194px;
+  height: 30px;
+ }
