@@ -18,7 +18,7 @@
 		document.form.wynik.value = exp.substring(0,exp.length-1); 
 	}
 //END OF calc
-
+ustaw();
 //Losowanie KOlorow
  function ustaw() {
 	ListKwad = document.getElementsByClassName("kolor");
