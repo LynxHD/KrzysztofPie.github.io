@@ -47,10 +47,10 @@ ul li a:hover {
   width: 30%;
   height: 110px;
   border-radius: 12%;
-  background-color: yellow;
+  background-color: #17181b;
  }
  #reset{
-  font-size: 50%;
-  width: 40px;
-  height: 20px;
+  font-size: 75%;
+  width: 80px;
+  height: 30px;
  }

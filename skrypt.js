@@ -18,7 +18,7 @@
 		document.form.wynik.value = exp.substring(0,exp.length-1); 
 	}
 //END OF calc
-ustaw();
+
 //Losowanie KOlorow
  function ustaw() {
 	ListKwad = document.getElementsByClassName("kolor");
@@ -33,6 +33,12 @@ ustaw();
 		document.getElementById("wiadomosc").style.background = "#17181b";
 
 	}
+	//Zaladuj kolory przy starcie strony
+	document.addEventListener("DOMContentLoaded", function()
+	{
+  	ustaw();
+	});
+
 //Losowanie KOlorow
 //Wybor jednego boxu
  function zmienjeden(){
