@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --> 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="style.css">
+     <link rel="stylesheet" type="text/css" href="style.css">
       <script type="text/javascript" src="skrypt.js"> </script>
 
      
@@ -104,6 +105,23 @@
 		<button type="button" value=","  onclick="insert('.')"class="btn btn-success ">,</button>	
 		<button type="button" value="="  onclick="equal()"id="rwn" class="btn btn-warning">=</button>
 	</div>	
+	</div>
+	<!-- color box -->
+	<div class="col Cbox">
+		<div class="row BKolor">
+			<button id="reset" onclick="ustaw()" >Reset</button>
+			<span id="wiadomosc" class="text-center"></span>
+		</div>
+		<div class="row">
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
+		</div>
+		<div class="row">	
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
+			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>	
+		</div>
 	</div>
 	<div class="col"></div>
 </div> 
