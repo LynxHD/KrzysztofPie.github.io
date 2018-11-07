@@ -20,7 +20,7 @@
 //END OF calc
 
 //Losowanie KOlorow
-function ustaw() {
+ function ustaw() {
 	ListKwad = document.getElementsByClassName("kolor");
 	for(var i = 0; i< ListKwad.length;i++)
 	{
@@ -32,9 +32,10 @@ function ustaw() {
 		zmienjeden();
 		document.getElementById("wiadomosc").style.background = "#17181b";
 
-}
+	}
 //Losowanie KOlorow
-function zmienjeden(){
+//Wybor jednego boxu
+ function zmienjeden(){
 	var i = Math.floor(Math.random()* 5)
 	var red = Math.floor(Math.random() * 256 );
  	var green = Math.floor(Math.random() * 256 );
@@ -42,9 +43,10 @@ function zmienjeden(){
 	ListKwad[i].style.backgroundColor = "rgb(" + red + ", " + green + ", " + blue + ")";
 	wybKolor = "rgb(" + red + ", " + green + ", " + blue + ")"
 	document.getElementById("wiadomosc").textContent = wybKolor;
-}
-
-function sprawdz(x){ //Sprawdzanie kolorw czy sa dobre;
+	}
+//Wybior jednego boxu
+//Sprawdzanie kolorow 
+ function sprawdz(x){ 
 	if(x.style.backgroundColor === wybKolor){
 		document.getElementById("wiadomosc").style.background = wybKolor;
 		for(var i = 0; i< ListKwad.length;i++)
@@ -55,4 +57,5 @@ function sprawdz(x){ //Sprawdzanie kolorw czy sa dobre;
 	else{
 		x.style.backgroundColor = "#17181b";
 	}
-}
+ }
+//sprwadzanie kolorow
