@@ -1,95 +1,118 @@
 //Setup Gry      
       //kolor obranmowania i tła canvas
-      const kolorObr = 'lightgreen';
-      const kolorTla = "#17181b";
-      const kolorSnake = 'lightgreen';
-      const KolorObrSnake = 'red';
-      const snakeSize = 15; //rozmiar kwadratow węza
+      const kolorOwc = 'red';
+      const kolorSnake = 'green';
+      const kolorOgn = 'lightgreen';
+      const oSize = 8; //rozmiar kwadratow węza
+      const sSize = 15; //rozmiar kwadratow węza
       var canvas = document.querySelector('canvas');
+      canvas.width = 300;
+      canvas.height = 300;
       var ctx = canvas.getContext('2d');
-      	 dx = 16;
+      	 speed = 16
+      	 dx = 17;
       	 dy = 0;
-      	 y = 100;
-      	 x = 100;
-      	 dsnake = 5;
+      	 y = 150;
+      	 x = 150;
+      	 dsnake = 3;
+//Setup Gry      	 
+//Wspolrzedne Weza i Owocu
+      	let snake = []
+      	snake[0] ={x :150, y:150};
+      	snake[1] ={x :133, y:150};
       	
-      	let pos = [
-      	{x :100, y:100},
-      	];
-
-	 function rysSnake (x,y){
-    	ctx.fillStyle = kolorSnake;
-    	ctx.fillRect(x,y,snakeSize,snakeSize);
- 	    }
-
-    	//pop Bierze z konca
-    	//push dodaje na koncu
-    	//shift bierze z poczatku
-    	//unshift dodaje poczatku 
+      	let owoc = {
+      	x: Math.floor(Math.random()*300),
+      	y: Math.floor(Math.random()*300)
+      	}
+//Wspolrzedne Weza i Owocu
+//Funkcje
+	 function rysSnake(){
+	 	for(var i=0; i < snake.length; i++){
+	 		ctx.fillStyle = (i == 0)? kolorSnake:kolorOgn;
+    		ctx.fillRect(snake[i].x,snake[i].y,sSize,sSize);	
+    		}
+		} 
+	 function rysOwoc(){
+	 	ctx.fillStyle = kolorOwc;
+	 	ctx.fillRect(owoc.x,owoc.y,oSize,oSize);
+	 }
+	 function dystans(x1,y1,x2,y2){
+	 	let xdyst = x2 - x1;
+	 	let ydyst = y2 - y1;
+	 	return Math.sqrt(Math.pow(xdyst,2)+ Math.pow(ydyst,2));
+	 }
+//Funkcje	 
+//Sterowanie 
     	document.addEventListener("keydown", ster)
     	function ster(event) {
-		 const LEFT_KEY = 37;
-		 const RIGHT_KEY = 39;
-		 const UP_KEY = 38;
-		 const DOWN_KEY = 40;
+		 const LEFT_KEY = 65;
+		 const RIGHT_KEY = 68;
+		 const UP_KEY = 87;
+		 const DOWN_KEY = 83;
 		 const keyPressed = event.keyCode;
-		 const goingUp = dy === -10;
-		 const goingDown = dy === 10;
-		 const goingRight = dx === 10;
-		 const goingLeft = dx === -10;
+		 const goingUp = dy === -speed;
+		 const goingDown = dy === speed;
+		 const goingRight = dx === speed;
+		 const goingLeft = dx === -speed;
 		 if (keyPressed === LEFT_KEY && !goingRight) {
-		   dx = -16;
+		   dx = -speed;
 		   dy = 0;
 		 }
 		 if (keyPressed === UP_KEY && !goingDown) {
 		   dx = 0;
-		   dy = -16;
+		   dy = -speed;
 		 }
 		 if (keyPressed === RIGHT_KEY && !goingLeft) {
-		   dx = 16;
+		   dx = speed;
 		   dy = 0;
 		 }
 		 if (keyPressed === DOWN_KEY && !goingDown) {
 		   dx = 0;
-		   dy = 16;
+		   dy = speed;
 		 }
-}
-		function czysc(){
-			ctx.clearRect(0,0,canvas.width,canvas.height);
 		}
-		
+//Sterowanie
 	
-		rysuje();
-    	setInterval(rysuje,240);
-
+    	setInterval(rysuje,80);
+//Funkcja Rysowania
     	function rysuje()
     	{
-		//ogon weza
-       		rysSnake(x,y);
+		// ogon weza
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+       	rysSnake();
+       	rysOwoc();
+       		if(dystans(snake[0].x,snake[0].y,owoc.x,owoc.y) < sSize){
+       			dsnake++;
+       			
+       			owoc = {
+      				x: Math.floor(Math.random()*300),
+      				y: Math.floor(Math.random()*300)
+      			};
+	       	}
+	       	else if(snake.length > dsnake){
+    			snake.pop();
+    		}
+
        		x += dx;
     		y += dy;
-    		pos.unshift({x:x,y:y});
-    		//usuwanie ogona
-    		if (pos.length > dsnake){
-    			ctx.clearRect(pos[dsnake].x,pos[dsnake].y,15,15);   			
-    			pos.pop();
-    		}
-    		//Przenoszenie przez sciany | |
-    		if(pos[0].x > canvas.width){
+    		snake.unshift({x:x,y:y});
+    		// usuwanie ogona
+    		// Przenoszenie przez sciany | |
+    		if(snake[0].x > canvas.width){
     			x = -dx;
     			
     		}
-    		if(pos[0].x + 8 < 0){
-    			czysc();
+    		if(snake[0].x + 8 < 0){
     			x = canvas.width;
     		}
 
-    		//Przenoszenie przez ___~~
-    		if(pos[0].y > canvas.height){
+    		// Przenoszenie przez ___~~
+    		if(snake[0].y > canvas.height){
     			y = -dy;
     		}
-    		if(pos[0].y + 8 < 0){
-    			czysc();
+    		if(snake[0].y + 8 < 0){
     			y = canvas.height;
     		}
     	}
+//Rysowanie
