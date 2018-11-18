@@ -3,12 +3,13 @@
       const kolorOwc = 'red';
       const kolorSnake = 'green';
       const kolorOgn = 'lightgreen';
-      const oSize = 8; //rozmiar kwadratow węza
+      const oSize = 10; //rozmiar kwadratow węza
       const sSize = 15; //rozmiar kwadratow węza
       var canvas = document.querySelector('canvas');
       canvas.width = 300;
       canvas.height = 300;
       var ctx = canvas.getContext('2d');
+      	 pkt =0;
       	 speed = 16
       	 dx = 17;
       	 dy = 0;
@@ -30,7 +31,8 @@
 	 function rysSnake(){
 	 	for(var i=0; i < snake.length; i++){
 	 		ctx.fillStyle = (i == 0)? kolorSnake:kolorOgn;
-    		ctx.fillRect(snake[i].x,snake[i].y,sSize,sSize);	
+    		ctx.fillRect(snake[i].x,snake[i].y,sSize,sSize);
+	
     		}
 		} 
 	 function rysOwoc(){
@@ -41,6 +43,14 @@
 	 	let xdyst = x2 - x1;
 	 	let ydyst = y2 - y1;
 	 	return Math.sqrt(Math.pow(xdyst,2)+ Math.pow(ydyst,2));
+	 }
+	 function kolizja(){
+	 	   	for(let i= 1 ; i<snake.length; i++){
+	       		if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+	       			clearInterval(stoprys);
+	       			document.getElementById("punkty").textContent = "przegrales z wynikiem : "+ pkt;
+	       		}
+	       	}
 	 }
 //Funkcje	 
 //Sterowanie 
@@ -67,27 +77,30 @@
 		   dx = speed;
 		   dy = 0;
 		 }
-		 if (keyPressed === DOWN_KEY && !goingDown) {
+		 if (keyPressed === DOWN_KEY && !goingUp) {
 		   dx = 0;
 		   dy = speed;
 		 }
 		}
 //Sterowanie
 	
-    	setInterval(rysuje,80);
+    	stoprys = setInterval(rysuje,120);
+    	rysSnake();
 //Funkcja Rysowania
     	function rysuje()
     	{
-		// ogon weza
+    	kolizja();
 		ctx.clearRect(0,0,canvas.width,canvas.height);
-       	rysSnake();
        	rysOwoc();
+       	rysSnake();
+       	
        		if(dystans(snake[0].x,snake[0].y,owoc.x,owoc.y) < sSize){
        			dsnake++;
-       			
+       			pkt++
+       			document.getElementById("punkty").textContent = pkt;
        			owoc = {
-      				x: Math.floor(Math.random()*300),
-      				y: Math.floor(Math.random()*300)
+      				x: Math.floor(Math.random()*285)+5,
+      				y: Math.floor(Math.random()*285)+5
       			};
 	       	}
 	       	else if(snake.length > dsnake){
