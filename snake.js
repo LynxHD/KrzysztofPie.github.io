@@ -1,3 +1,4 @@
+// Skrypt Strorzony przez Krzysztof Pięta
 //Setup Gry      
       //kolor obranmowania i tła canvas
       const kolorOwc = 'red';
