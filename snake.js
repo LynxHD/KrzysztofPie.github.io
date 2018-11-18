@@ -130,3 +130,4 @@
     		}
     	}
 //Rysowanie
+// Skrypt Strorzony przez Krzysztof Pięta
