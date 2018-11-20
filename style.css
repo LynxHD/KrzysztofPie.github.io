@@ -1,8 +1,13 @@
 body {
 color: #fff;
   background: hsl(227, 10%, 10%);
-  font: 300 1em 'Fira Sans', sans-serif;
+
 }
+p {
+    font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+}
+
 ul li a {
     font-family: calibri;
     font-size: 1.3em;
@@ -54,3 +59,6 @@ ul li a:hover {
   width: 80px;
   height: 30px;
  }
+.progress{
+  background-color:  #212529;
+}
