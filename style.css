@@ -62,3 +62,23 @@ ul li a:hover {
 .progress{
   background-color:  #212529;
 }
+@media only screen and (max-width: 500px) {
+ .kolor {
+  margin: 5px;
+  width: 25%;
+  height: 45px;
+  border-radius: 12%;
+  background-color: #17181b;
+ }
+ .duzyBtn{
+  width:89px;
+ }
+ button {
+  margin: 2px;
+  width: 22%;
+  height: 45px;
+ }
+
+
+
+  }
