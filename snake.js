@@ -29,6 +29,8 @@
       	}
 //Wspolrzedne Weza i Owocu
 //Funkcje
+
+	//rysuj Snake
 	 function rysSnake(){
 	 	for(var i=0; i < snake.length; i++){
 	 		ctx.fillStyle = (i == 0)? kolorSnake:kolorOgn;
@@ -36,15 +38,18 @@
 	
     		}
 		} 
+		//Rysowanie Owoca
 	 function rysOwoc(){
 	 	ctx.fillStyle = kolorOwc;
 	 	ctx.fillRect(owoc.x,owoc.y,oSize,oSize);
 	 }
+	 //Funkcja obliczajaca Dystans miedzy punktami
 	 function dystans(x1,y1,x2,y2){
 	 	let xdyst = x2 - x1;
 	 	let ydyst = y2 - y1;
 	 	return Math.sqrt(Math.pow(xdyst,2)+ Math.pow(ydyst,2));
 	 }
+	 //Funkcja Kolizji
 	 function kolizja(){
 	 	   	for(let i= 1 ; i<snake.length; i++){
 	       		if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
@@ -53,6 +58,30 @@
 	       		}
 	       	}
 	 }
+	 //Ruch na dotyk
+	 // canvas.addEventListener("touchstart", function (e) {
+		//     mousePos = getTouchPos(canvas, e);
+		//   	var touch = e.touches[0];
+		//   	var mouseEvent = new MouseEvent("mousedown", {
+		//     clientX: touch.clientX,
+		//     clientY: touch.clientY
+		//   });
+		//   canvas.dispatchEvent(mouseEvent);
+		// 	}, false);
+		//   canvas.addEventListener("touchend", function (e) {
+		//   var mouseEvent = new MouseEvent("mouseup", {});
+		//   canvas.dispatchEvent(mouseEvent);
+		// 	}, false);
+	 //      canvas.addEventListener("touchmove", function (e) {
+		//   var touch = e.touches[0];
+		//   var mouseEvent = new MouseEvent("mousemove", {
+		//     clientX: touch.clientX,
+		//     clientY: touch.clientY
+		//   });
+		//   canvas.dispatchEvent(mouseEvent);
+		// }, false);
+		
+	
 //Funkcje	 
 //Sterowanie 
     	document.addEventListener("keydown", ster)

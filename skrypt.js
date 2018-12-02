@@ -1,7 +1,15 @@
 
 //Kalkulator
+	reset = 0;
   	function insert(num){
+      		if(reset == 1){
+      		document.form.wynik.value = "";
       		document.form.wynik.value = document.form.wynik.value+num;
+      		reset = 0;
+      		}
+      		else {
+      			document.form.wynik.value = document.form.wynik.value+num;
+      		}
     }
 	
 	function equal(){
@@ -9,6 +17,7 @@
 		if(exp){
 			document.form.wynik.value = eval(exp) 
 		};
+		reset = 1;
 	}
 	function clean(){
 		document.form.wynik.value = "";
@@ -22,7 +31,9 @@
 //Losowanie KOlorow
  function ustaw() {
 	ListKwad = document.getElementsByClassName("kolor");
-	for(var i = 0; i< ListKwad.length;i++)
+	document.getElementById("Bkolor").style.background ="#17181b" ;
+	document.getElementById('reset').style.visibility = 'hidden';
+		for(var i = 0; i< ListKwad.length;i++)
 	{
 		var red = Math.floor(Math.random() * 256 );
  		var green = Math.floor(Math.random() * 256 );
@@ -31,6 +42,7 @@
 	}
 		zmienjeden();
 		document.getElementById("wiadomosc").style.background = "#17181b";
+
 
 	}
 	//Zaladuj kolory przy starcie strony
@@ -54,7 +66,9 @@
 //Sprawdzanie kolorow 
  function sprawdz(x){ 
 	if(x.style.backgroundColor === wybKolor){
+		document.getElementById("Bkolor").style.background = wybKolor;
 		document.getElementById("wiadomosc").style.background = wybKolor;
+		document.getElementById('reset').style.visibility = 'visible';
 		for(var i = 0; i< ListKwad.length;i++)
 		{
     	ListKwad[i].style.backgroundColor = wybKolor; // random color

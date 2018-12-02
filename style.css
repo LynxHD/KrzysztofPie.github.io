@@ -26,16 +26,27 @@ ul li a:hover {
 } 
 
 
- .avatar{
-  background-image: url("AvatarBG.jpg"); 
- }
+
  button {
   margin: 2px;
   width: 45px;
   height: 45px;
  }
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
+  .kolumny{
+    border-right: dashed 0.15em rgb(67, 238, 16);
+    border-left: dashed 0.15em rgb(67, 238, 16);
+  }
  .duzyBtn{
   width:95px;
+ }
+ #wiadomosc{
+  width: 600px;
+  height: 100px;
  }
  #rwn{
   height: 95px;
@@ -56,13 +67,16 @@ ul li a:hover {
  }
  #reset{
   font-size: 75%;
-  width: 80px;
-  height: 30px;
+  width: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: white;
  }
 .progress{
   background-color:  #212529;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 991px) {
  .kolor {
   margin: 5px;
   width: 25%;
@@ -71,14 +85,67 @@ ul li a:hover {
   background-color: #17181b;
  }
  .duzyBtn{
-  width:89px;
+  width:46%;
  }
  button {
   margin: 2px;
   width: 22%;
   height: 45px;
  }
+  #rwn{
+  height: 95px;
+  transform: translate(0%,-51%);
+ }
 
+  }
 
+  @media only screen and (max-width: 767px) {
+ .kolor {
+  margin: 5px;
+  width: 25%;
+  height: 45px;
+  border-radius: 12%;
+  background-color: #17181b;
+ }
+ .duzyBtn{
+  width:45%;
+ }
+ button {
+  margin: 2px;
+  width: 22%;
+  height: 45px;
+ }
+ #rwn{
+  height: 95px;
+  transform: translate(3%,-50%);
+ }
+  .duzyBtn{
+  width:122px;
+ }
 
+  }
+  @media only screen and (max-width: 450px) {
+ .kolor {
+  margin: 5px;
+  width: 25%;
+  height: 45px;
+  border-radius: 12%;
+  background-color: #17181b;
+ }
+  .avatar{
+  background-image: url("AvatarBG.jpg"); 
+  transform: translateX(25%);
+ }
+ .duzyBtn{
+  width:46%;
+ }
+ button {
+  margin: 2px;
+  width: 22%;
+  height: 45px;
+ }
+ #rwn{
+  height: 95px;
+  transform: translate(0%,-51%);
+ }
   }

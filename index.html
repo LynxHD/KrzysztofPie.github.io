@@ -1,5 +1,10 @@
-<!doctype html>
-<html lang="en">
+<!-- 
+	Portfolio
+	Krzysztof Pięta
+	04.12.2018
+ -->
+ <!doctype html>
+<html lang="pl">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,13 +23,13 @@
     <div class="container">          
     <ul class="nav justify-content-center fixed-top">
   <li class="nav-item">
-    <a class="nav-link active" href="#home">Domowa</a>
+    <a class="nav-link active" href="#home">Start</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#content">O mnie   </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Kontakt</a>
+    <a class="nav-link" href="#projekt">Projekty</a>
   </li>
   <!-- <li class="nav-item">
     <a class="nav-link disabled" href="#"></a>
@@ -32,14 +37,14 @@
   </!-->
 </ul>
 <div class="row" id="home" style="height: 880px ;margin-top: 10px">
-<img src="avatar.jpg" alt="..." class="shadow-lg p-1 mb-0 bg-dark rounded-circle align-self-center">
-<div class="col align-self-center" style="font-family: 'Roboto Mono', monospace; font-size: 25px;" ><p>Cześc jestem Krzysiek.Od dziecka zakochany w sporcie, głownie w siatkówce,piłce ręcznej oraz lekko atletyce w której mam wiele lokalnych osiągnieć.Za czasów szkoly średniej zarażony pasja do programowania która stała sie moim hobby a pózniej kierunkiem w którym chce sie rozwijać i tak jestem tutaj. A to moje skromne portfolio.</p></div></div>
+<img src="avatar.jpg"  alt="..." class="shadow-lg p-1 mb-0 bg-dark rounded-circle align-self-center avatar">
+<div class="col align-self-center" style="font-family: 'Roboto Mono', monospace; font-size: 25px;" ><p>Cześc jestem Krzysiek. Od dziecka zakochany w sporcie, głownie w siatkówce, piłce ręcznej oraz lekko atletyce w której mam wiele lokalnych osiągnieć. Za czasów szkoly średniej zarażony pasja do programowania która stała sie moim hobby a pózniej kierunkiem w którym chce sie rozwijać i tak jestem tutaj. A to moje skromne portfolio.</p></div></div>
 <div class="row" id="content" style="height: auto;padding-top: 60px;">
-  <div class="col" style="border-right: dashed 0.15em rgb(67, 238, 16)" >
+  <div class="col">
   <h5 align="center" ><img src="Nauka.png"  style="margin-bottom: 10px" alt="Co potrafie">Nauka</h5>
-  <p>Ukonczyłem Klase o Profilu Technik Informatyk w Zespole Szkoł nr 2 w Nowym Dworze Grańskim.</p>
+  <p>Ukończyłem klase o profilu Technik Informatyk w Zespole Szkoł nr 2 w Nowym Dworze Gdańskim.</p>
   </div>
-    <div class="col" style="border-right: dashed 0.15em rgb(67, 238, 16)">
+    <div class="col kolumny">
       <img src="Omnie.png" class="mx-auto d-block" style="margin-bottom: 10px" alt="Cos o mnie">
       <p>Języki oraz FrameWork'i które znam:</p>
       HTML:
@@ -81,7 +86,7 @@
         <br>
         <li>Kwalifikacja E14 Tworzenie aplikacji internetowych i baz danych oraz administrowanie bazami</li>
         <br>
-        <li>4 certyfikat</li>
+        <li>Zwinne Zarządzanie Projektami w oparciu o Scrum</li>
         </ul>
     </div>
 </div>
@@ -92,7 +97,7 @@
     <div class="col" >
 
 
-     <div class="row">
+     <div class="row" id="projekt">
 
      	<form name="form">
 		<input type="text" id="wynik" name="wynik" value=''>
@@ -135,10 +140,10 @@
 	</div>	
 	</div>
 <!-- color box -->
-	<div class="col Cbox">
-		<div class="row BKolor">
-			<button id="reset" onclick="ustaw()" >Nowa Gra</button>
-			<span id="wiadomosc" class="text-center"></span>
+	<div class="col Cbox text-center">
+		<div id="Bkolor">
+			<button id="reset" class="btn" onclick="ustaw()" >Nowa Gra</button><br>
+			<span id="wiadomosc"></span>
 		</div>
 		<div class="row">
 			<button type="button" onclick="sprawdz(this)" class="btn kolor"></button>
@@ -156,12 +161,6 @@
 	<div class="col">
 		<span id="punkty" class="text-center">0</span><br>
 		<canvas id="oknoGry" width="300" height="300" style="border: dashed 0.15em rgb(67, 238, 16);" ></canvas>
-
-
-
-
-
-
 	</div>
 <!-- Snake -->	
 </div> 
